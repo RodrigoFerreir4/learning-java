@@ -1,10 +1,7 @@
 package com.jobs_api.modules.candidates;
 
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
@@ -14,18 +11,18 @@ import java.util.UUID;
 public class CandidateEntity {
     private UUID id;
 
-    @NotNull
+    @NotBlank
     private String name;
 
-    @NotNull
-    @Pattern(regexp = "^(?!\\s*$).+", message = "username não deve conter espaço")
+    @NotBlank
+    @Pattern(regexp = "\\S+", message = "username não deve conter espaço")
     private String username;
 
     @Email(message = "O campo deve conter um email valido")
-    @NotNull
+    @NotBlank
     private String email;
 
-    @NotNull
+    @NotBlank
     @Length(min = 5, max = 15)
     private String password;
 

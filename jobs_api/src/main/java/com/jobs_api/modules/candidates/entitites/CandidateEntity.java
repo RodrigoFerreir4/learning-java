@@ -1,4 +1,4 @@
-package com.jobs_api.modules.company;
+package com.jobs_api.modules.candidates.entitites;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,13 +8,15 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.Length;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Entity(name = "company")
 @Data
-public class CompanyEntity {
+@Entity(name = "candidate")
+public class CandidateEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
@@ -34,8 +36,12 @@ public class CompanyEntity {
     @Length(min = 5, max = 15)
     private String password;
 
-    private String website;
     private String description;
+
+    private String curriculum;
+
+    @CreationTimestamp
+    private LocalDateTime createdAt;
 }
 
 

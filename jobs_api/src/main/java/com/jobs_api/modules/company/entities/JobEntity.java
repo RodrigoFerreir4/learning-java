@@ -1,4 +1,4 @@
-package com.jobs_api.modules.company;
+package com.jobs_api.modules.company.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -19,7 +19,7 @@ public class JobEntity {
 
     @ManyToOne()
     @JoinColumn(name="company_id", insertable = false, updatable = false)
-    private  CompanyEntity companyEntity;
+    private CompanyEntity companyEntity;
 
     @Column(name = "company_id")
     private UUID companyId;

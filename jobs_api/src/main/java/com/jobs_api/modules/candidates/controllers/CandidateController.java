@@ -1,6 +1,6 @@
 package com.jobs_api.modules.candidates.controllers;
 
-import com.jobs_api.modules.candidates.CandidateEntity;
+import com.jobs_api.modules.candidates.entitites.CandidateEntity;
 import com.jobs_api.modules.candidates.useCases.CreateCandidateUseCase;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
